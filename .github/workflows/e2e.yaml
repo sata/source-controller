@@ -89,6 +89,18 @@ jobs:
 
           kubectl -n source-system apply -f ./config/testdata/bucket/source.yaml
           kubectl -n source-system wait bucket/podinfo --for=condition=ready --timeout=1m
+      - name: Run Bucket Source Ignore tests
+        run: |
+          ./mc mb minio/sourceignoretest
+          ./mc mirror ./config/testdata/minio/manifests/ minio/sourceignoretest
+          ./mc cp ./config/testdata/bucket/.sourceignore minio/sourceignoretest
+
+          kubectl -n source-system apply -f ./config/testdata/bucket/source.yaml
+          kubectl -n source-system wait bucket/podinfo --for=condition=ready --timeout=1m
+
+          # how can I wait for bucket/podinfo not to exist?
+          kubectl -n minio-test get pods -l app=podinfo
+
       - name: Run HelmChart from Bucket tests
         run: |
           ./mc mb minio/charts

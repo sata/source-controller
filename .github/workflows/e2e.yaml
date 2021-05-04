@@ -97,6 +97,7 @@ jobs:
           kubectl -n source-system apply -f ./config/testdata/bucket/source.yaml
           kubectl -n source-system wait bucket/podinfo --for=condition=ready --timeout=1m
 
+          kubectl get namespace
           kubectl create namespace source-ignore-b
 
       - name: Run HelmChart from Bucket tests

@@ -21,15 +21,21 @@ require (
 	github.com/go-git/go-billy/v5 v5.1.0
 	github.com/go-git/go-git/v5 v5.3.0
 	github.com/go-logr/logr v0.4.0
+	github.com/google/go-cmp v0.5.5 // indirect
 	github.com/libgit2/git2go/v31 v31.4.7
 	github.com/minio/minio-go/v7 v7.0.10
 	github.com/onsi/ginkgo v1.14.1
 	github.com/onsi/gomega v1.10.2
+	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/spf13/pflag v1.0.5
 	golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2
-	golang.org/x/sync v0.0.0-20201207232520-09787c993a3a
+	golang.org/x/mod v0.4.2 // indirect
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
+	golang.org/x/sys v0.0.0-20210503173754-0981d6026fa6 // indirect
+	golang.org/x/tools/gopls v0.6.10 // indirect
 	gotest.tools v2.2.0+incompatible
 	helm.sh/helm/v3 v3.5.4
+	honnef.co/go/tools v0.1.4 // indirect
 	k8s.io/api v0.20.4
 	k8s.io/apimachinery v0.20.4
 	k8s.io/client-go v0.20.4

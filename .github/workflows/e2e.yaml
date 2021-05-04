@@ -89,6 +89,17 @@ jobs:
 
           kubectl -n source-system apply -f ./config/testdata/bucket/source.yaml
           kubectl -n source-system wait bucket/podinfo --for=condition=ready --timeout=1m
+      - name: Run Bucket Source Ignore test
+        run: |
+          ./mc mb minio/sourceignore
+          ./mc mirror ./config/testdata/sourceignore minio/sourceignore
+
+          kubectl -n source-system apply -f ./config/testdata/bucket/source.yaml
+          kubectl -n source-system wait bucket/podinfo --for=condition=ready --timeout=1m
+
+          kubectl get namespace
+          kubectl create namespace source-ignore-b
+
       - name: Run HelmChart from Bucket tests
         run: |
           ./mc mb minio/charts
